@@ -63,28 +63,24 @@ const estilos = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: "#2c3e50"
+    backgroundColor: 'white'
     },
-    logo:{
-      width: 150,
-      height: 150,
-      backgroundColor: 'white',
-      fontSize: 25,
-      textAlign: 'center',
-    },
+
     input:{
       marginTop: 10,
       backgroundColor: "white",
       width: 300,
       fontSize: 16,
       fontWeight: 'bold',
+      borderColor:'#9900cc',
+      borderWidth:1,
       borderRadius: 3,
       padding: 10
     },
     botao:{
       width: 300,
       height: 42,
-      backgroundColor: "#3498db",
+      backgroundColor: "#9900cc",
       marginTop: 10,
       borderRadius: 4,
       alignItems: 'center',
@@ -95,11 +91,6 @@ const estilos = StyleSheet.create({
       fontWeight: 'bold',
       color: 'white'
     },
-    cadastre:{
-      marginTop: 10,
-      color: 'orange',
-      fontSize: 17,
-      padding: 5,
-      },
-})
+
+});
 
