@@ -64,32 +64,35 @@ export default function Bicicleta({ navigation }) {
 
     <View style={estilos.caixa}>
         <View style={estilos.ops}>
-          <Text style={estilos.texto}> Revisão (R$100)</Text>
-          <Checkbox
-            status={opcaoUm ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setopcaoUm(!opcaoUm);
-            }}
-          />
-        </View>
-
-        <View style={estilos.ops}>
-          <Text style={estilos.texto}>Troca de pneu (R$50)</Text>
-          <Checkbox
-            status={opcaoDois ? 'checked' : 'unchecked'}
-            onPress={() => {
-              setopcaoDois(!opcaoDois);
-            }}
-          />
-        </View>
-        <View style={estilos.ops}>
-          <Text style={estilos.texto}>Lavagem e Lubrificação (R$200)</Text>
-          <Checkbox
+           <Checkbox
             status={opcaoTres ? 'checked' : 'unchecked'}
             onPress={() => {
               setopcaoTres(!opcaoTres);
             }}
           />
+          <Text style={estilos.texto}> Revisão (R$100)</Text>
+       
+        </View>
+
+        <View style={estilos.ops}>
+           <Checkbox
+            status={opcaoTres ? 'checked' : 'unchecked'}
+            onPress={() => {
+              setopcaoTres(!opcaoTres);
+            }}
+          />
+          <Text style={estilos.texto}>Troca de pneu (R$50)</Text>
+         
+        </View>
+        <View style={estilos.ops}>
+           <Checkbox
+            status={opcaoTres ? 'checked' : 'unchecked'}
+            onPress={() => {
+              setopcaoTres(!opcaoTres);
+            }}
+          />
+          <Text style={estilos.texto}>Lavagem e Lubrificação (R$200)</Text>
+       
         </View>
       </View>
 
@@ -104,49 +107,47 @@ export default function Bicicleta({ navigation }) {
   );
 }
 const estilos = StyleSheet.create({
- tela: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'white',
-  },
-
-  ops: {
-    justifyContent: 'left',
-    flexDirection: 'row-reverse',
-    borderRadius: 5,
-    alignItems: 'center',
-    borderWidth: '1px',
+ tela:{
+   flex:1,
+   justifyContent:'center',
+   alignItems:'center',
+   backgroundColor:'white',
+ },
+ ops:{
+    flexDirection:'row',
+    borderWidth:1,
+    borderRadius:5,
     borderColor: '#9900cc',
-    padding: '9px',
+    padding: 9,
     backgroundColor: '#d9d9d9',
-    width: '90%',
-    height:'30%',
     marginTop: 4,
-    marginLeft:17,
+    width: 300,
+    height:70,
 
-  },
-  texto: {
-    fontSize: '20px',
+ },
+ texto: {
+    fontSize: 20,
+    
   },
   valorTotal:{
-    fontSize: 16,
+    fontSize: 20,
     color:'white',
+    textAlign:'center'
   },
   selecionarCaixa:{
     backgroundColor:'#9900cc',
     borderRadius:10,
-    padding: 10,
-    width: 250,
-    height: 50,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    padding: 5,
+    width: 200,
+    height: 70,
+    marginTop:15,
+    
  
   },
-  selecionar:{
-    fontSize: 16,
+   selecionar:{
+    fontSize: 20,
     color:'white',
+    textAlign:'center'
   },
     
   textoComentarios:{
@@ -154,8 +155,8 @@ const estilos = StyleSheet.create({
     color:'bleck',
     fontWeight: 'bold',
     flexDirection:'column',
-    marginTop:10,  
-    position:"absolut"
+    marginTop:20,  
+  
   }
 });
 
