@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -12,6 +11,9 @@ import Moto from './components/Moto';
 import Bicicleta from './components/Bicicleta';
 import Diversos from './components/Diversos';
 import comentariosCarro from './components/comentariosCarro';
+import comentariosMoto from './components/comentariosMoto';
+import comentariosBicicleta from './components/comentariosBicicleta';
+import comentariosDiversos from './components/comentariosDiversos';
 export default function App() {
   return (
     <NavigationContainer>
@@ -20,11 +22,13 @@ export default function App() {
           name="Login"
           option={{ title: 'Login' }}
           component={Login}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="telaPrincipal"
           option={{ title: 'Tela Principal' }}
           component={TelaPrincipal}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Cadastro"
@@ -54,6 +58,25 @@ export default function App() {
           option={{ title: 'Comentarios' }}
           component={comentariosCarro}
         />
+
+        <Stack.Screen
+          name="comentariosMoto"
+          option={{ title: 'Comentarios' }}
+          component={comentariosMoto}
+        />
+
+        <Stack.Screen
+          name="comentariosBicicleta"
+          option={{ title: 'Comentarios' }}
+          component={comentariosBicicleta}
+        />
+
+        <Stack.Screen
+          name="comentariosDiversos"
+          option={{ title: 'Comentarios' }}
+          component={comentariosDiversos}
+        />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
