@@ -29,10 +29,9 @@ export default function cadastro({ navigation }) {
       .createUserWithEmailAndPassword(email, senha)
       .then(userCredentials => {
 
-        db.collection('Contas').add({
-          Nome: nomeUsuario,
-          Email: email
-
+        db.collection("Contas").doc(email).set({
+          Email: email,
+          Nome: nomeUsuario
     })
         Alert.alert("Usuario criado com sucesso");
         navigation.navigate('Login')

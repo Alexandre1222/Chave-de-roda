@@ -9,7 +9,7 @@ import {
 import { Checkbox } from 'react-native-paper';
 import db from '../firebaseConfig'
 
-export default function Bicicleta({ navigation }) {
+export default function Bicicleta({ navigation, route }) {
   const [opcaoUm, setopcaoUm] = React.useState(true);
   const [opcaoDois, setopcaoDois] = React.useState(true);
   const [opcaoTres, setopcaoTres] = React.useState(true);
@@ -47,52 +47,52 @@ export default function Bicicleta({ navigation }) {
     soma += valorServicos[i];
 }
 
-    function addTask(){
+ function addTask(){
 
-        db.collection('Servicos').add({
+        db.collection("Contas").doc(route.params?.email).set({
           ID: id,
           NomeServico: servicos,
+          tipoServico: "Bicicleta",
           valorServico: valorServicos,
           horaAgendada: Date()
-
-    })
+    }, { merge: true })
     Alert.alert("Serviços marcados com sucesso!");
-    navigation.navigate('telaPrincipal')
+    navigation.navigate('telaPrincipal', {email: route.params?.email})
     }
   return (
     <View style={estilos.tela}>
 
     <View style={estilos.caixa}>
         <View style={estilos.ops}>
-           <Checkbox
-            status={opcaoTres ? 'checked' : 'unchecked'}
+          <Checkbox
+            status={opcaoUm ? 'checked' : 'unchecked'}
             onPress={() => {
-              setopcaoTres(!opcaoTres);
+              setopcaoUm(!opcaoUm);
             }}
           />
-          <Text style={estilos.texto}> Revisão (R$100)</Text>
-       
+          <Text style={estilos.texto}>Revisão (R$100)</Text>
+        
         </View>
 
         <View style={estilos.ops}>
-           <Checkbox
-            status={opcaoTres ? 'checked' : 'unchecked'}
+            <Checkbox
+            status={opcaoDois ? 'checked' : 'unchecked'}
             onPress={() => {
-              setopcaoTres(!opcaoTres);
+              setopcaoDois(!opcaoDois);
             }}
           />
           <Text style={estilos.texto}>Troca de pneu (R$50)</Text>
-         
+      
         </View>
         <View style={estilos.ops}>
-           <Checkbox
+         <Checkbox
             status={opcaoTres ? 'checked' : 'unchecked'}
             onPress={() => {
               setopcaoTres(!opcaoTres);
             }}
           />
           <Text style={estilos.texto}>Lavagem e Lubrificação (R$200)</Text>
-       
+         
         </View>
       </View>
 
@@ -100,7 +100,8 @@ export default function Bicicleta({ navigation }) {
         <Text style={estilos.selecionar}>Selecionar</Text>
         <Text style={estilos.valorTotal}>R$ {soma}</Text>
       </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('comentariosCarro')}>
+      
+        <TouchableOpacity onPress={() => navigation.navigate('comentariosBicicleta', {email: route.params?.email})}>
         <Text style={estilos.textoComentarios}>Avaliações</Text>
       </TouchableOpacity>
     </View>

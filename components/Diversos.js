@@ -9,7 +9,7 @@ import {
 import { Checkbox } from 'react-native-paper';
 import db from '../firebaseConfig'
 
-export default function Carro({ navigation }) {
+export default function Carro({ navigation, route }) {
   const [opcaoUm, setopcaoUm] = React.useState(true);
   const [opcaoDois, setopcaoDois] = React.useState(true);
   const [opcaoTres, setopcaoTres] = React.useState(true);

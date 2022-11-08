@@ -14,7 +14,7 @@ export default function login({navigation}){
       auth
       .signInWithEmailAndPassword(email, senha)
       .then(userCredentials => {
-        navigation.navigate('telaPrincipal', {paramKey: email,})
+        navigation.navigate('telaPrincipal', {email: email})
       })
       .catch(error => alert(error.message))
     }

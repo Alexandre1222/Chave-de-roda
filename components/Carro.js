@@ -9,7 +9,7 @@ import {
 import { Checkbox } from 'react-native-paper';
 import db from '../firebaseConfig'
 
-export default function Carro({ navigation }) {
+export default function Carro({ navigation, route }) {
   const [opcaoUm, setopcaoUm] = React.useState(true);
   const [opcaoDois, setopcaoDois] = React.useState(true);
   const [opcaoTres, setopcaoTres] = React.useState(true);
@@ -49,16 +49,15 @@ export default function Carro({ navigation }) {
 
     function addTask(){
 
-        db.collection('Servicos').add({
+        db.collection("Contas").doc(route.params?.email).set({
           ID: id,
           NomeServico: servicos,
           tipoServico: "Carro",
           valorServico: valorServicos,
           horaAgendada: Date()
-
-    })
+    }, { merge: true })
     Alert.alert("Serviços marcados com sucesso!");
-    navigation.navigate('telaPrincipal')
+    navigation.navigate('telaPrincipal', {email: route.params?.email})
     }
   return (
     <View style={estilos.tela}>
@@ -102,7 +101,7 @@ export default function Carro({ navigation }) {
         <Text style={estilos.valorTotal}>R$ {soma}</Text>
       </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('comentariosCarro')}>
+        <TouchableOpacity onPress={() => navigation.navigate('comentariosCarro',  {email: route.params?.email})}>
         <Text style={estilos.textoComentarios}>Avaliações</Text>
       </TouchableOpacity>
     </View>
